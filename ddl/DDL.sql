@@ -1,5 +1,5 @@
 
-create schema nba;
+create schema if not exists NBA;
 
 create or replace TABLE NBA.NBA.PLAYERS (
 	PLAYER_ID NUMBER(38,0),
@@ -58,5 +58,44 @@ create or replace TABLE NBA.NBA.OFFSET_TRACKER (
     insert_dtm TIMESTAMP
 );
 
+
+
+
+CREATE OR REPLACE TABLE NBA.NBA.GAMES (
+    game_id VARCHAR(100),
+    game_date DATE,
+    winning_team_id INTEGER,
+    home_team_id INTEGER,
+    visitor_team_id INTEGER,
+    home_final_score INTEGER,
+    visitor_final_score INTEGER,
+    periods INTEGER,
+    game_code VARCHAR(250),
+    arena_name VARCHAR(250),
+    season VARCHAR(10),
+    season_type_cd INTEGER,
+    season_type VARCHAR(50),
+    offset_from_1996 INTEGER,
+    insert_dtm TIMESTAMP
+);
+
+
+CREATE OR REPLACE TABLE NBA.NBA.LEADING_SCORES (
+    seq_id INTEGER,
+    game_id VARCHAR(100),
+    player_id INTEGER,
+    winning BOOLEAN,
+    winning_team_id INTEGER,
+    home_team_id INTEGER,
+    visitor_team_id INTEGER,
+    season VARCHAR(10),
+    season_type_cd INTEGER,
+    season_type VARCHAR(50),
+    periods INTEGER,
+    game_code VARCHAR(250),
+    game_date DATE,
+    score INTEGER,
+    insert_dtm TIMESTAMP
+);
 
 
