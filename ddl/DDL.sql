@@ -1,4 +1,10 @@
+use role accountadmin;
+create database nba;
 
+grant all on database nba to sysadmin;
+
+
+use role sysadmin;
 create schema if not exists NBA;
 
 create or replace TABLE NBA.NBA.PLAYERS (
